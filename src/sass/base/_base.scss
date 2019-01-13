@@ -1,0 +1,42 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; //1rem 10px
+
+  //from bigger to smaller
+
+  @include respond(big-desktop) {
+    //>1800
+    font-size: 75%; //1rem 12px
+  }
+
+  @include respond(tab-land) {
+    //<1200
+    font-size: 56.25%; //1rem 9px
+  }
+
+  @include respond(tab-port) {
+    //900
+    font-size: 50%; //1rem 8px
+  }
+}
+
+body {
+  box-sizing: border-box; /* and with the inheritance we set in * we are fine */
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
